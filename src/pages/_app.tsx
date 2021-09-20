@@ -1,7 +1,10 @@
-import '../styles/globals.css'
+import '../styles/globals.css';
+import '@/lib/firebase';
+import { AppProps } from 'next/app';
+import React from 'react';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+    return <Component {...pageProps} />;
+};
 
-export default MyApp
+export default MyApp;
