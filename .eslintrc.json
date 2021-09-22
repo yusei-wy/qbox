@@ -1,6 +1,12 @@
 {
   "extends": "next/core-web-vitals",
+  "plugins": [
+    "prettier",
+    "import",
+    "simple-import-sort"
+  ],
   "rules": {
-    "react-hooks/exhaustive-deps": "off" // Checks effect dependencies
+    "react-hooks/exhaustive-deps": "off", // Checks effect dependencies
+    "simple-import-sort/imports": 1
   }
 }

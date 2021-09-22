@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../styles/Home.module.css';
+
 import { useAuthentication } from '@/hooks/authentication';
+
+import styles from '../styles/Home.module.css';
 
 const Home: React.FC = () => {
     const { user } = useAuthentication();

@@ -1,9 +1,9 @@
-import { initializeApp, getApps } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
-
 import 'firebase/analytics';
 import 'firebase/auth';
 import 'firebase/firestore';
+
+import { getAnalytics } from 'firebase/analytics';
+import { getApps,initializeApp } from 'firebase/app';
 
 if (typeof window !== 'undefined' && getApps().length === 0) {
     const firebaseConfig = {
