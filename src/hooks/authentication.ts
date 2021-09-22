@@ -30,6 +30,7 @@ export const useAuthentication = () => {
                 const loginUser: User = {
                     uid: firebaseUser.uid,
                     isAnnymouse: firebaseUser.isAnonymous,
+                    name: '',
                 };
                 setUser(loginUser);
                 createUserIfNotFound(loginUser);
@@ -45,7 +46,7 @@ export const useAuthentication = () => {
 
 const createUserIfNotFound = async (user: User) => {
     const db = getFirestore();
-    const usersCollection = collection(db, 'usres');
+    const usersCollection = collection(db, 'users');
     const userRef = doc(usersCollection, user.uid);
     const document = await getDoc(userRef);
     if (document.exists()) {
