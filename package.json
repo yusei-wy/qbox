@@ -7,9 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:style": "stylelint --fix './src/**/*.css'"
+    "lint:style": "stylelint --fix './src/**/*.css'",
+    "test": "yarn jest --passWithNoTests"
   },
   "dependencies": {
+    "dayjs": "^1.10.7",
     "firebase": "^9.0.2",
     "next": "11.1.2",
     "react": "17.0.2",
@@ -26,12 +28,14 @@
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "jest": "^27.2.4",
     "postcss": "^8.3.7",
     "prettier": "^2.4.1",
     "prettier-stylelint": "^0.4.2",
     "stylelint": "^13.13.1",
     "stylelint-config-recess-order": "^2.5.0",
     "stylelint-prettier": "^1.2.0",
+    "ts-jest": "^27.0.5",
     "typescript": "^4.4.3"
   }
 }

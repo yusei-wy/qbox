@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 export const Layout: React.FC = ({ children }) => {
@@ -8,9 +9,9 @@ export const Layout: React.FC = ({ children }) => {
                 style={{ backgroundColor: '#e3f2fd' }}
             >
                 <div className="mr-auto">
-                    <a href="#" className="navbar-brand">
-                        Navbar
-                    </a>
+                    <Link href="/">
+                        <a className="navbar-brand">Navbar</a>
+                    </Link>
                 </div>
                 <form action="" className="flex">
                     <button

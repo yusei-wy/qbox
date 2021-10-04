@@ -51,7 +51,7 @@ const UserShow: React.FC = () => {
             const db = getFirestore();
             await addDoc(collection(db, 'questions'), {
                 senderUID: currentUser.uid,
-                reciverUID: user.uid,
+                receiverUID: user.uid,
                 body,
                 isReplied: false,
                 createdAt: serverTimestamp(),

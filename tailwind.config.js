@@ -5,7 +5,10 @@ module.exports = {
         extend: {},
     },
     variants: {
-        extend: {},
+        extend: {
+            padding: ['last'],
+            margin: ['last'],
+        },
     },
     plugins: [],
 };
