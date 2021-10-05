@@ -111,9 +111,9 @@ const RecdeivedPage: React.FC = () => {
                     {questions.map((q) => (
                         <Card
                             key={q.id}
-                            title=""
                             body={q.body}
                             timestamp={dayjs(q.createdAt.toDate()).format('YYYY/MM/DD HH:mm')}
+                            link={`/questions/${q.id}`}
                         />
                     ))}
                 </div>
