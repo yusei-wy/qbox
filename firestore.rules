@@ -1,0 +1,24 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{uid} {
+      allow update, delete: if request.auth.uid == uid;
+      allow create, read: if request.auth.uid != null;
+    }
+    match /questions/{questionID} {
+      allow create: if request.auth.uid != null &&
+        request.auth.uid != request.resource.data.receiverUID;
+      allow read: if
+        // 送信者か受信者のみ閲覧可能
+        request.auth.uid == resource.data.senderUID ||
+        request.auth.uid == resource.data.receiverUID
+      allow update: if request.auth.uid == resource.data.receiverUID && 
+        (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['isRelied']));
+      allow delete: if false;
+    }
+    match /answers/{answerID} {
+      allow update, delete: if request.auth.uid == resource.data.uid;
+      allow create, read: if request.auth.uid != null;
+    }
+  }
+}

@@ -70,37 +70,43 @@ const UserShow: React.FC = () => {
 
     return (
         <Layout>
-            {user && (
-                <div className="text-center">
-                    <h1 className="h4">{user.name}さんのページ</h1>
-                    <div className="m-6">{user.name}さんに質問しよ！</div>
-                </div>
-            )}
-            <div className="flex flex-wrap justify-center mb-4">
-                <form className="flex flex-col align-center jusitfy-center w-8/12" onSubmit={onSubmit}>
-                    <textarea
-                        className="p-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
-                        placeholder="お元気ですか？"
-                        rows={6}
-                        value={body}
-                        onChange={(e) => setBody(e.target.value)}
-                        required
-                    />
-                    <div className="m-4 text-center">
-                        {isSending ? (
-                            <Loading />
+            {user && currentUser && (
+                <>
+                    <div className="text-center">
+                        <h1 className="h4">{user.name}さんのページ</h1>
+                        <div className="m-6">{user.name}さんに質問しよ！</div>
+                    </div>
+                    <div className="flex flex-wrap justify-center mb-4">
+                        {user.uid === currentUser.uid ? (
+                            <div>自分には送信できません。</div>
                         ) : (
-                            <button
-                                type="submit"
-                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold
-                                py-2 px-4 rounded"
-                            >
-                                質問を送信する
-                            </button>
+                            <form className="flex flex-col align-center jusitfy-center w-8/12" onSubmit={onSubmit}>
+                                <textarea
+                                    className="p-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
+                                    placeholder="お元気ですか？"
+                                    rows={6}
+                                    value={body}
+                                    onChange={(e) => setBody(e.target.value)}
+                                    required
+                                />
+                                <div className="m-4 text-center">
+                                    {isSending ? (
+                                        <Loading />
+                                    ) : (
+                                        <button
+                                            type="submit"
+                                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold
+                                    py-2 px-4 rounded"
+                                        >
+                                            質問を送信する
+                                        </button>
+                                    )}
+                                </div>
+                            </form>
                         )}
                     </div>
-                </form>
-            </div>
+                </>
+            )}
 
             {isShowToast && <Toast message="質問を送信しました" />}
         </Layout>

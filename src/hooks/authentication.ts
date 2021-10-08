@@ -1,8 +1,9 @@
 import { getAuth, onAuthStateChanged, signInAnonymously } from 'firebase/auth';
-import { getFirestore, collection, doc, getDoc, setDoc } from 'firebase/firestore';
-import { atom, useRecoilState } from 'recoil';
-import { User } from '@/models/user';
+import { collection, doc, getDoc, getFirestore, setDoc } from 'firebase/firestore';
 import { useEffect } from 'react';
+import { atom, useRecoilState } from 'recoil';
+
+import { User } from '@/models/user';
 
 const userState = atom<User>({
     key: 'user',

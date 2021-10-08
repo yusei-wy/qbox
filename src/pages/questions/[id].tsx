@@ -76,6 +76,11 @@ const QuestionPage: React.FC<Props> = (props) => {
     };
 
     useEffect(() => {
+        // rules でログインユーザーのみにしたため未認証のユーザーではエラーになる
+        if (user === null) {
+            return;
+        }
+
         fetchData();
     }, [routerQuery.id]);
 
